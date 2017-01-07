@@ -41,7 +41,6 @@ struct tgl_dc;
 #define TG_APP_ID 10534
 
 #define ACK_TIMEOUT 1
-#define MAX_DC_ID 10
 
 struct connection;
 

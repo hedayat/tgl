@@ -88,21 +88,21 @@ void bl_do_dc_option (struct tgl_state *TLS, int flags, int id, const char *name
 /* }}} */
 
 void bl_do_set_working_dc (struct tgl_state *TLS, int num) /* {{{ */ {
-  assert (num > 0 && num <= MAX_DC_ID);
+  assert (num >= 0 && num < TGL_MAX_DC_NUM);
   TLS->DC_working = TLS->DC_list[num];
   TLS->dc_working_num = num;
 }
 /* }}} */
 
 void bl_do_dc_signed (struct tgl_state *TLS, int num) /* {{{ */ {
-  assert (num > 0 && num <= MAX_DC_ID);
+  assert (num > 0 && num < TGL_MAX_DC_NUM);
   assert (TLS->DC_list[num]);
   TLS->DC_list[num]->flags |= TGLDCF_LOGGED_IN;
 }
 /* }}} */
 
 void bl_do_set_auth_key (struct tgl_state *TLS, int num, unsigned char *buf) /* {{{ */ {
-  assert (num > 0 && num <= MAX_DC_ID);
+  assert (num >= 0 && num < TGL_MAX_DC_NUM);
   assert (TLS->DC_list[num]);
 
   memcpy (TLS->DC_list[num]->auth_key, buf, 256);
